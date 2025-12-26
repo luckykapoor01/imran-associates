@@ -3,12 +3,12 @@ body{
     margin: 0;
 }
 
-/* ===== Reset ===== */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ===== Navbar ===== */
@@ -214,6 +214,68 @@ nav{
   }
 }
 
+.vm-section {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  margin: 80px auto;
+  height: 260px;
+}
+
+.vm-card {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 50px 60px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+.vm-card.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.vm-card h2 {
+  font-size: 42px;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.vm-card p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #1f2937;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vm-card {
+    padding: 30px;
+  }
+
+  .vm-card h2 {
+    font-size: 30px;
+  }
+
+  .vm-card p {
+    font-size: 16px;
+  }
+
+  .vm-section {
+    height: 300px;
+  }
+}
+
 .about-us{
     display: flex;
     justify-content: center;
@@ -223,7 +285,8 @@ nav{
 .about-container{
     margin-top: 30px;
     padding: 48px;
-    border: 1px solid rgba(128, 128, 128, 0.506);
+    border: 1px solid rgba(128, 128, 128, 0.214);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     border-radius: 10px;
     max-width: 70vw;
     display: flex;
@@ -303,7 +366,7 @@ nav{
 }
 
 .guide-container{
-  padding: 20px 30px 20px 30px;
+  padding: 30px;
   
 }
 
@@ -314,29 +377,30 @@ nav{
 }
 
 .guide-container p{
-    text-align: center;
-    margin-bottom: 30px;
-    text-align: justify;
+  text-align: center;
+  margin-bottom: 30px;
+  text-align: justify;
    
-
 }
 
- .card-container {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+.card-container {
+   margin: auto;
+   max-width: 1100px;
+   grid-template-columns: repeat(3, 1fr);
+   display: grid;
+   gap: 20px;
+  }
 
         .tarif {
             display: flex;
             align-items: center;
             gap: 12px;
 
+            height: 13vh;
+
             padding: 14px 22px;
             border: 1px solid rgba(128, 128, 128, 0.35);
-            border-radius: 30px;
+            border-radius: 20px;
             background: #fff;
 
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
@@ -408,7 +472,7 @@ nav{
 
 
 .cards {
-    border: 1px solid gray;
+    border: 1px solid rgba(128, 128, 128, 0.236);
     border-radius: 15px;
 
     width: 340px;          /* SAME size everywhere */
