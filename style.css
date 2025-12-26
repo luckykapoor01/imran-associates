@@ -258,17 +258,52 @@ nav{
     border-radius: 20px;
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+    .about-container {
+        padding: 32px;          /* reduced from 48px */
+        max-width: 85vw;
+    }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    .about-container {
+        padding: 30px;          /* comfortable mobile padding */
+        max-width: 95vw;
+    }
+
+    .about-container h1 {
+        margin-top: 0;
+        font-size: 22px;
+    }
+
+    .about-container p {
+        max-width: 100%;
+        font-size: 15px;
+    }
+}
+
+
 
 .guide{
+    margin-top: 40px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    background: linear-gradient(
+  180deg,
+  #eaf3ff 0%,
+  #f5f9ff 40%,
+  #ffffff 100%
+);
+
+
 }
 
 .guide-container{
-  padding: 20px 60px 20px 60px;
+  padding: 20px 30px 20px 30px;
   
 }
 
@@ -286,67 +321,71 @@ nav{
 
 }
 
-.card-container {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
+ .card-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
-.tarif {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+        .tarif {
+            display: flex;
+            align-items: center;
+            gap: 12px;
 
-    padding: 14px 22px;
-    border: 1px solid rgba(128, 128, 128, 0.35);
-    border-radius: 30px;
-    background: #fff;
+            padding: 14px 22px;
+            border: 1px solid rgba(128, 128, 128, 0.35);
+            border-radius: 30px;
+            background: #fff;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    min-height: 60px;
-    
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            min-height: 60px;
 
-    transition: all 0.3s ease;
-}
+            transition: all 0.3s ease;
+        }
 
-.tarif i {
-    font-size: 20px;
-    color: #092950;
-    min-width: 22px;
-}
+        .tarif i {
+            font-size: 20px;
+            color: #092950;
+            min-width: 22px;
+        }
 
-.tarif span {
-    font-size: 16px;
-    font-weight: 600;
-    color: #000;
-}
+        .tarif span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+        }
 
-/* Hover effect (optional but professional) */
-.tarif:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
+        /* Hover effect */
+        .tarif:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
 
-/* Tablet */
-@media (max-width: 900px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        /* Tablet */
+        @media (max-width: 900px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-/* Mobile */
-@media (max-width: 520px) {
-    .card-container {
-        grid-template-columns: 1fr;
-    }
+        /* Mobile */
+        @media (max-width: 520px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
 
-    .tarif {
-        justify-content: center;
-        text-align: center;
-    }
-}
+            .tarif {
+                justify-content: center;
+                text-align: center;
+
+                width: 100%;
+                max-width: 360px;   /* 👈 wider on mobile */
+                margin: 0 auto;
+            }
+        }
+
 
 .services{
     padding: 30px;
