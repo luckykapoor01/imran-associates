@@ -17,6 +17,9 @@ nav{
     padding: 10px 20px;
     position: relative;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: fixed;
+    z-index: 100;
+    width: 100%;
 }
 
 .nav-container{
@@ -57,8 +60,8 @@ nav{
 
 .nav-links li a{
     text-decoration: none;
-    font-size: 20px;
-    color: #092950;
+    font-size: 18px;
+    color: #063291;
 }
 
 .nav-links li a:hover{
@@ -366,7 +369,7 @@ nav{
 }
 
 .guide-container{
-  padding: 30px;
+  padding: 70px;
   
 }
 
@@ -391,28 +394,38 @@ nav{
    gap: 20px;
   }
 
-        .tarif {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+       .tarif {
+           display: flex;
+           align-items: center;
+           gap: 12px;
+           height: 13vh;
+           padding: 14px 22px;
+           border: 1px solid rgba(128, 128, 128, 0.239);
+           border-radius: 20px;
+           background: #fff;
+           box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+           min-height: 60px;
+           transition: all 0.3s ease;
+       }
 
-            height: 13vh;
+        /* Mobile */
+@media (max-width: 520px) {
+  .guide-container{
+  padding: 10px;
+  
+} 
+}
 
-            padding: 14px 22px;
-            border: 1px solid rgba(128, 128, 128, 0.35);
-            border-radius: 20px;
-            background: #fff;
 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            min-height: 60px;
-
-            transition: all 0.3s ease;
-        }
 
         .tarif i {
             font-size: 20px;
             color: #092950;
             min-width: 22px;
+        }
+
+        .tarif h3{
+          color: #002169;;
         }
 
         .tarif span {
@@ -452,7 +465,7 @@ nav{
 
 
 .services{
-    padding: 10px;
+    padding: 20px;
     
 }
 
@@ -516,6 +529,7 @@ nav{
 
 .cards h3{
   margin-top: 10px;
+  color: #003098;
   
 }
 
@@ -599,6 +613,7 @@ nav{
 .contact h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #092950;
 }
 
 .contact-form {
@@ -633,7 +648,7 @@ nav{
 
 
 .footer {
-  background: #853e04 ;
+  background: #494949 ;
   padding: 60px 20px 30px;
 }
 
@@ -648,6 +663,7 @@ nav{
 .footer-col h3,
 .footer-col h4 {
   margin-bottom: 15px;
+  color: #a67804;
 }
 
 .footer-col p {
@@ -722,42 +738,118 @@ nav{
   display: none;
 }
 
-/* ===== Language Switcher ===== */
+/* ================= LANGUAGE SWITCHER ================= */
 .language-switcher {
   position: fixed;
-  left: 15px;
+  left: 16px;
   bottom: 20px;
+  z-index: 99999;
 }
 
+/* Button */
 .lang-btn {
-  background: #fff;
-  color: #000;
-  border: none;
+  background: #ffffff;
+  border: 1px solid #dddddd;
   padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.lang-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+/* Flag */
+.lang-btn img {
+  width: 20px;
+  height: auto;
+}
+
+/* Language Code */
+#currentLang {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Arrow */
+.arrow {
+  font-size: 11px;
+  opacity: 0.7;
+  transition: transform 0.25s ease;
+}
+
+/* Rotate arrow */
+.language-switcher.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* ================= DROPDOWN MENU ================= */
 .lang-menu {
-  list-style: none;
-  background: #fff;
-  color: #000;
   position: absolute;
-  bottom: 40px;
+  bottom: 52px;
   left: 0;
-  width: 140px;
-  display: none;
-  border-radius: 4px;
-  overflow: hidden;
+  width: 180px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(15px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
+.lang-menu.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Menu Items */
 .lang-menu li {
-  padding: 8px 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.lang-menu li img {
+  width: 20px;
 }
 
 .lang-menu li:hover {
-  background: #eee;
+  background: #f3f5f7;
+}
+
+/* ================= RTL SUPPORT ================= */
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[dir="rtl"] .language-switcher {
+  left: auto;
+  right: 16px;
+}
+
+html[dir="rtl"] .lang-menu {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .lang-btn {
+  flex-direction: row-reverse;
 }
 
 /* Responsive */
