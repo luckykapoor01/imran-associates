@@ -61,7 +61,7 @@ nav{
 .nav-links li a{
     text-decoration: none;
     font-size: 18px;
-    color: #063291;
+    color: #0d2f4f
 }
 
 .nav-links li a:hover{
@@ -247,7 +247,7 @@ nav{
 
 .vm-card h2 {
   font-size: 42px;
-  color: #2563eb;
+  color: #0a3d6c;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -300,7 +300,7 @@ nav{
 .about-container h1{
     text-align: center;
     margin-bottom: 20px;
-    color: #F07F23 ;
+    color: #F07F23;
     margin-top: -20px;
 }
 
@@ -420,12 +420,12 @@ nav{
 
         .tarif i {
             font-size: 20px;
-            color: #092950;
+            color: #0a3d6c;
             min-width: 22px;
         }
 
         .tarif h3{
-          color: #002169;;
+          color: #0a3d6c;
         }
 
         .tarif span {
@@ -507,7 +507,7 @@ nav{
 .cards:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    border-color: #092950;
+    border-color: #0a3d6c;
 }
 
 
@@ -529,7 +529,7 @@ nav{
 
 .cards h3{
   margin-top: 10px;
-  color: #003098;
+  color: #0a3d6c;
   
 }
 
@@ -548,7 +548,7 @@ nav{
 
 .clients h2 {
   font-size: 32px;
-  color:  #092950;
+  color:  #0a3d6c;
   margin-bottom: 40px;
 }
 
@@ -613,7 +613,7 @@ nav{
 .contact h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #092950;
+  color: #0a3d6c;
 }
 
 .contact-form {
@@ -632,7 +632,7 @@ nav{
 }
 
 .contact-form button {
-  background:  #092950;
+  background: #0a3d6c;
   color: #fff;
   border: none;
   padding: 12px;
@@ -641,7 +641,7 @@ nav{
 }
 
 .contact-form button:hover{
-  background: #F07F23 ;;
+  background: #F07F23;
 }
 
 
@@ -663,7 +663,7 @@ nav{
 .footer-col h3,
 .footer-col h4 {
   margin-bottom: 15px;
-  color: #a67804;
+  color: #F07F23;
 }
 
 .footer-col p {
@@ -851,6 +851,9 @@ html[dir="rtl"] .lang-menu {
 html[dir="rtl"] .lang-btn {
   flex-direction: row-reverse;
 }
+
+
+
 
 /* Responsive */
 @media (max-width: 600px) {
