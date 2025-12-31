@@ -1,16 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* =====================================================
+     BACKGROUND SLIDESHOW
+  ===================================================== */
   const slides = document.querySelectorAll(".bg");
-let current = 0;
+  let current = 0;
 
-function changeBackground() {
-  slides[current].classList.remove("active");
-  current = (current + 1) % slides.length;
-  slides[current].classList.add("active");
-}
+  function changeBackground() {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }
 
-/* Change image every 6 seconds */
-setInterval(changeBackground, 6000);
+  /* Change image every 6 seconds */
+  if (slides.length > 1) {
+    setInterval(changeBackground, 6000);
+  }
 
   /* =====================================================
      AUTO CAROUSEL (HOVER + TOUCH)
@@ -61,7 +66,6 @@ setInterval(changeBackground, 6000);
     animate();
   }
 
-
   /* =====================================================
      SCROLL TO TOP
   ===================================================== */
@@ -77,7 +81,6 @@ setInterval(changeBackground, 6000);
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-
 
   /* =====================================================
      PROFESSIONAL HAMBURGER MENU ANIMATION
@@ -96,10 +99,9 @@ setInterval(changeBackground, 6000);
 
     hamburger.addEventListener("click", (e) => {
       e.stopPropagation();
-
-      hamburger.classList.toggle("open");   // hamburger → X
-      navLinks.classList.toggle("active");  // menu slide
-      body.classList.toggle("no-scroll");   // lock scroll
+      hamburger.classList.toggle("open");
+      navLinks.classList.toggle("active");
+      body.classList.toggle("no-scroll");
     });
 
     /* Close menu when clicking a nav link */
@@ -123,14 +125,13 @@ setInterval(changeBackground, 6000);
     });
   }
 
-
   /* =====================================================
      VISION / MISSION CARD SWITCH
   ===================================================== */
   const cards = document.querySelectorAll(".vm-card");
   let index = 0;
 
-  if (cards.length) {
+  if (cards.length > 1) {
     setInterval(() => {
       cards[index].classList.remove("active");
       index = (index + 1) % cards.length;
@@ -140,15 +141,34 @@ setInterval(changeBackground, 6000);
 
 });
 
+/* =====================================================
+   PRELOADER (SHOW ONLY ON FIRST VISIT PER SESSION)
+===================================================== */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const content = document.getElementById("main-content");
 
-  setTimeout(() => {
-    preloader.style.opacity = "0";
+  if (!preloader || !content) return;
+
+  const preloaderShown = sessionStorage.getItem("preloaderShown");
+
+  if (!preloaderShown) {
+    // First visit → show loader
+    sessionStorage.setItem("preloaderShown", "true");
+
     setTimeout(() => {
-      preloader.style.display = "none";
-      content.style.display = "block";
-    }, 800);
-  }, 3500);
+      preloader.style.opacity = "0";
+
+      setTimeout(() => {
+        preloader.style.display = "none";
+        content.style.display = "block";
+      }, 800);
+
+    }, 3500);
+
+  } else {
+    // Returning visit → skip loader
+    preloader.style.display = "none";
+    content.style.display = "block";
+  }
 });
