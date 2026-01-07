@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     slides[current].classList.add("active");
   }
 
-  /* Change image every 6 seconds */
   if (slides.length > 1) {
     setInterval(changeBackground, 6000);
   }
@@ -73,8 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (scrollBtn) {
     window.addEventListener("scroll", () => {
-      scrollBtn.style.display =
-        window.scrollY > 300 ? "block" : "none";
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
     });
 
     scrollBtn.addEventListener("click", () => {
@@ -83,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
-     PROFESSIONAL HAMBURGER MENU ANIMATION
+     HAMBURGER MENU
   ===================================================== */
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
@@ -104,12 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
       body.classList.toggle("no-scroll");
     });
 
-    /* Close menu when clicking a nav link */
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeMenu);
     });
 
-    /* Close menu on outside click */
     document.addEventListener("click", (e) => {
       if (!hamburger.contains(e.target) &&
           !navLinks.contains(e.target)) {
@@ -117,11 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    /* Close menu on ESC key */
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeMenu();
-      }
+      if (e.key === "Escape") closeMenu();
     });
   }
 
@@ -142,33 +135,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =====================================================
-   PRELOADER (SHOW ONLY ON FIRST VISIT PER SESSION)
+   PRELOADER – FIXED (NO STUCK ISSUE)
 ===================================================== */
 window.addEventListener("load", () => {
+
   const preloader = document.getElementById("preloader");
-  const content = document.getElementById("main-content");
+  if (!preloader) return;
 
-  if (!preloader || !content) return;
+  // Lock scroll while loading
+  document.body.style.overflow = "hidden";
 
-  const preloaderShown = sessionStorage.getItem("preloaderShown");
-
-  if (!preloaderShown) {
-    // First visit → show loader
-    sessionStorage.setItem("preloaderShown", "true");
+  const removeLoader = () => {
+    preloader.classList.add("fade-out");
 
     setTimeout(() => {
-      preloader.style.opacity = "0";
+      preloader.remove();                // 🔥 COMPLETELY REMOVE
+      document.body.style.overflow = ""; // Restore scroll
+    }, 800);
+  };
 
-      setTimeout(() => {
-        preloader.style.display = "none";
-        content.style.display = "block";
-      }, 800);
+  // Remove after animation duration
+  setTimeout(removeLoader, 3500);
 
-    }, 3500);
-
-  } else {
-    // Returning visit → skip loader
-    preloader.style.display = "none";
-    content.style.display = "block";
-  }
+  // FAILSAFE (never stuck)
+  setTimeout(removeLoader, 6000);
 });

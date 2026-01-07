@@ -824,7 +824,14 @@ nav{
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  opacity: 1;
   transition: opacity 0.8s ease;
+}
+
+/* Fade out */
+#preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* BRAND */
@@ -840,7 +847,7 @@ nav{
   animation: fadeIn 1.8s ease forwards;
 }
 
-/* LINE UNDER LOGO */
+/* LINE */
 .brand-line {
   position: absolute;
   bottom: -12px;
@@ -866,29 +873,11 @@ nav{
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #1e90ff, #00c6ff);
-  animation: loading 3s ease forwards;
-}
-
-/* MAIN CONTENT */
-#main-content {
-  display: none;
-  padding: 50px;
+  animation: loading 3s linear forwards;
 }
 
 /* ANIMATIONS */
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-@keyframes logoReveal {
-  from { transform: scale(0.9); }
-  to { transform: scale(1); }
-}
-
-@keyframes lineGrow {
-  to { width: 120px; }
-}
-
-@keyframes loading {
-  to { width: 100%; }
-}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes logoReveal { to { transform: scale(1); } }
+@keyframes lineGrow { to { width: 120px; } }
+@keyframes loading { to { width: 100%; } }

@@ -232,13 +232,14 @@
     <section class="contact" id="contact">
       <h1><i class="fa-regular fa-envelope" style="color: #74C0FC;"></i><span> </span>Contact us</h1>
         
-        <form action="" class="contact-form">
-          <input type="text" placeholder="Full Name" required>
-          <input type="tel" placeholder="Phone Number" required>
-          <input type="email" placeholder="Email Address" required>
-          <textarea placeholder="Your Message"></textarea>
+        <form action="send-mail.php" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
         </form>
+
   
     </section>
 
@@ -335,6 +336,9 @@
     <span></span>
   </div>
 </div>
+
+<!-- REST OF YOUR SITE (AS IT IS) -->
+
 
 <script src="script.js"></script>
 </body>
